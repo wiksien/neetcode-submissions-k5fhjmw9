@@ -9,17 +9,17 @@ class Solution:
     def guessNumber(self, n: int) -> int:
         L, R = 1, n
 
-        mid = (L + R) // 2
-        guessed_num = guess(mid)
+        M = (R + L) // 2
 
-        while guessed_num != 0:
-            if guessed_num == -1:
-                R = mid - 1
-            else:
-                L = mid + 1
+        num = guess(M)
+
+        while num != 0:
+            if num == 1:
+                L = M + 1
+            elif num == -1:
+                R = M - 1
             
-            mid = (L + R) // 2
-            guessed_num = guess(mid)
+            M = (R + L) // 2
+            num = guess(M)
         
-        return mid
-        
+        return M
